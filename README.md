@@ -1,7 +1,7 @@
 
 # Project Title
 
-A brief description of what this project does and who it's for
+
 
 
 ## Acknowledgements
@@ -66,14 +66,27 @@ Insert gif or link to demo
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
+`SECRET_KEY`
+`DEBUG` 
+`DB_NAME`
+`DB_USER`
+`DB_PASSWORD`
+`MODE`
+`ALLOWED_HOSTS`
+`DATABASE_URL`
+`EMAIL_USE_TLS`
+`EMAIL_HOST`
+`EMAIL_HOST_USER`
+`EMAIL_HOST_PASSWORD`
+`x-rapidapi-key`
+`x-rapidapi-host`
 
-`ANOTHER_API_KEY`
+
 
   
 ## Feedback
 
-If you have any feedback, please reach out to us at fake@fake.com
+If you have any feedback, please reach out to us at mail@mail.com.com
 
   
 ## Installation 
@@ -94,13 +107,14 @@ Install my-project with npm
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
+
+![DBDIAGRAM](https://github.com/JKimani77/statz/blob/master/raw/db.png?raw=true)
+
+
   
 ## Used By
 
-This project is used by the following companies:
-
-- Company 1
-- Company 2
+Any user who registers a user account on the site and logs in successfully.
 
   
 ## Running Tests
@@ -108,20 +122,20 @@ This project is used by the following companies:
 To run tests, run the following command
 
 ```bash
-  npm run test
+  python manage.py test
 ```
 
   
 ## Support
 
-For support, email fake@fake.com or join our Slack channel.
+For support, email jkkimani77@gmail.com or join me on Discord.
 
   
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
+**Client:** Python Django
 
-**Server:** Node, Express
+**Server:** localhost
 
   
 ## Roadmap
@@ -135,26 +149,37 @@ For support, email fake@fake.com or join our Slack channel.
 
 Clone the project
 
-```bash
-  git clone https://link-to-project
+```Ps1
+  git clone https://github.com/JKimani77/statz.git/
 ```
+
+Configure database settings and env variables 
+
+```Ps1
+    python manage.py makemigrations highlights
+```
+
+```Ps1
+    python manage.py migrate
+```
+
 
 Go to the project directory
 
-```bash
-  cd my-project
+```Ps1
+  cd statz
 ```
 
 Install dependencies
 
-```bash
-  npm install
+```Ps1
+  pip install -r requiements,txt;pip freeze
 ```
 
 Start the server
 
-```bash
-  npm run start
+```Powershell 1
+  python manage.py runserver
 ```
 
   

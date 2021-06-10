@@ -47,14 +47,29 @@ def logout_user(request):
     return redirect(home)
 
 
+def createprofile(request):
+    currentuser = request.user
+    if request.method=="POST":
+        form = ProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = currentuser
+            profile.save_profile()
+            return redirect(home)
+    else:
+        form = ProfileForm()
+    return render(request, 'profile_form.html',{"form":form})
+    
+
+def viewprofile(request, id):
+    profile = Profile.objects.filter(user = id).all()
+    return render(request, 'profile_view.html',{"profile":profile}) 
+
 def search_by_title():
     pass
 def comment():
     pass
-def profile():
-    pass
-def view_profile():
-    pass
+
 
 
 class UserViewSet(viewsets.ModelViewSet):

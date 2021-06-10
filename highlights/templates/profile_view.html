@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%load bootstrap4 %}
+{%block content %}
+
+<div class="container">
+    <div class="span3 well">
+        <br>
+        <br>
+        <br>
+        {%for i in profile %}
+        
+        <img style="border-radius: 4%;" src="{{i.profile_pic.url}}" name="aboutme" width="800" height="440" class="img-circle"></<img>
+        <br>
+        <br>
+        
+        <h3 style="color: white;" >Username    {{i.user.username}}</h3>
+        <h3 style="color: white;" >Email     {{i.user.email}}</h3>
+        <em style="color: white; " >{{i.bio} }</em>
+        
+        {%endfor%}
+        <hr>
+    </div>
+
+</div>
+
+{%endblock%}

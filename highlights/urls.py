@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from highlights.views import UserViewSet, home
-from django.urls import path, include
+from django.urls import path, include, re_path
 from rest_framework import serializers, viewsets, routers
 from . import views
 
@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/data/', views.ApiList.as_view()),
     path('login/', views.login, name = 'login'),
     path('logout/',views.logout_user, name='logout'),
-    
+    path('createprofile/', views.createprofile, name = 'createprofile'),
+    re_path('profile/(?P<id>\d+)/',views.viewprofile,name = 'viewprofile'),
     
 ]

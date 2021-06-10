@@ -108,7 +108,7 @@ Install my-project with npm
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 
-![DBDIAGRAM](https://github.com/JKimani77/statz/blob/master/raw/db.png?raw=true)
+![DBDIAGRAM](https://github.com/JKimani77/statz/blob/master/raw/dbd.png?raw=true)
 
 
   

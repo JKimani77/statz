@@ -182,5 +182,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ASGI_APPLICATION = 'projec_site.routing.application'
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND":"channels.layers.InMemoryChannelLayer"
+    }
+}
+
+
 # Configure Django App for Heroku.
 django_heroku.settings(locals())

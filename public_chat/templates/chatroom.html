@@ -1,0 +1,59 @@
+{%extends 'base.html'%} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: 60px;color: white;" >
+         Chat </h1>
+{%block scripts%}
+    <div class="form-field" style="float: right;">
+        <textarea id="chat-text" cols="80" rows="30"></textarea><br>
+    <input type="text" size="80" id="input"></br>
+    <input type="button" id="submit" value="Send" class="btn btn-outline-primary btn-lg ">
+    {{user}}
+    </div>
+    {{ room_name|json_script:"room-name" }}
+    {{ request.user.username|json_script:"user_username"}}
+    <script>
+        const user_username = JSON.parse(doument.getElementById('user_username').textContent);
+        const roomName = JSON.parse(doument.getElementById('room-name').textContent);
+
+
+        document.querySelector('#submit').onclick = function (e) {
+            const messageInputDom = document.querySelector('#input');
+            const message = messageInputDom.value;
+            chatSocket.send(JSON.stringify({
+                'message': message,
+                'username':user_username,
+            }));
+            messageInputDom.value = '';
+        };
+
+        const chatSocket = new WebSocket(
+            'ws://' +
+            window.location.host +
+            '/ws/chat/' +
+            roomName +
+            '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log(data)
+    
+            document.querySelector('#chat-text').value += (data.username +': '  + data.message + '\n')
+        };
+
+
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script></body>
+     {%endblock%}
+</html>

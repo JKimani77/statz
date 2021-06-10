@@ -24,6 +24,27 @@ def home(request):
     data=requests.get('https://free-football-soccer-videos.p.rapidapi.com/?rapidapi-key=6c61f61a64mshb7f6dd3b49823b4p1ea082jsnbd55b4b7071b').json()
     return render(request, 'a.html' ,{"data":data})
 
+def login(request):
+    if request.method=='POST':
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            
+            user = authenticate(request, username=username,password=password)
+            
+            if user.is_active:
+                login(request,user)
+                return redirect(home)
+            else:
+                return "Your account is inactive"
+    else:
+        form = LoginForm()
+    return render(request, 'registration/login.html',{"form":form})
+
+def logout_user(request):
+    logout(request)
+    return redirect(home)
 #
 
 

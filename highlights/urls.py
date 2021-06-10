@@ -13,6 +13,8 @@ urlpatterns = [
     #path('', include(router.urls)),
     path('api/profile/', views.ProfileList.as_view()),
     path('api/data/', views.ApiList.as_view()),
+    path('login/', views.login, name = 'login'),
+    path('logout/',views.logout_user, name='logout'),
     
     
 ]

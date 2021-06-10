@@ -11,7 +11,7 @@ from requests.api import get
 from .models import *
 from .serializers import *
 from .requests import *
-
+from .forms import *
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -45,13 +45,8 @@ def login(request):
 def logout_user(request):
     logout(request)
     return redirect(home)
-#
 
 
-def login():
-    pass
-def logout_user():
-    pass
 def search_by_title():
     pass
 def comment():

@@ -1,16 +1,39 @@
+{%extends 'base.html'%} 
+{% load static %}
+ {% load bootstrap4 %}
+ {{ block.super}}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
 
-{% for i in data %}
 
-        <div class="col-md-6">
-            <div class="card" style="background-color: aquamarine;">
-                <div class="card-header">
-                    <h1>{{i.title}}</h1>
-                </div>
-                <a href="{{i.url}}">{{i.url}}</a>
-                <img src="{{i.image.url}}" alt="">
-                <h1>{{i.competition.name}}</h1>
-                
-            </div>
-        </div>
+{% block content %} 
+  {{ block.super}}
+ 
   
+
+    <div class="container" style="display: flex; flex-direction:column; scroll-behavior: smooth;">
+        {% for i in data %}
+        <div class="col-md-6">
+            <div class="card" style="background-color: rgb(207, 207, 207); box-shadow: black; border-radius: 8px;">
+                <div class="card-header">
+                    <h1 style="color: rgb(71, 64, 54); font-size: 40px;">{{i.competition.name}}</h1>
+                    <h1 style="color: rgb(80, 78, 78); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: 20px;" >{{i.title}} </h1>
+                </div>
+                
+                <img src="{{i.thumbnail}}" alt="img" width="500px" height="350px">
+                
+                <!--
+                    <div class="card-body">
+                    {{i.embed}}
+                </div>
+                -->
+
+                <a style="text-align: left;" href="{{i.url}}">{{i.url}}</a> 
+                <br>
+            </div>
+            <br>
+            <br>
+            
+        </div>
         {%endfor%}
+    </div>
+        {% endblock %}

@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'cloudinary',
     'rest_framework',
-    'rest_framework.authtoken',
+    'public_chat',
     'highlights',
 ]
 

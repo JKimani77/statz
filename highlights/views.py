@@ -92,11 +92,4 @@ class ApiList(APIView):
         serializers = ApiSerializer(all_data, many=True)
         return Response(serializers.data)
 
-    def post(self, request, format = None):
-        serializers = ApiSerializer(data=request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.status.HTTP_400_BAD_REQUEST)
-        
-   
+ 

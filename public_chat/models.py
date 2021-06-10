@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class PublicChatRoom(models.Model):
     title = models.CharField(max_length=255, unique=True, blank=False) 
-    users = models.ManyToManyField(User, help_text="users connected to chat" )
+    users = models.ManyToManyField(User, blank=True, help_text="users connected to chat" )
 
     def __str__(self):
         return self.title

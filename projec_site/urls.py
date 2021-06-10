@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', include(router.urls)),
     path('', include('highlights.urls')),
+    path('chat/',include('public_chat.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'public_chat',
     'highlights',
+    'channels',
 ]
 
 cloudinary.config(
@@ -179,6 +180,7 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+ASGI_APPLICATION = 'projec_site.routing.application'
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())

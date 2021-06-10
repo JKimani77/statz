@@ -85,6 +85,7 @@ To run this project, you will need to add the following environment variables to
 
   
 ## Feedback
+Incorporates use of django tool to serve websockets as asgi app in project.
 
 If you have any feedback, please reach out to us at mail@mail.com.com
 

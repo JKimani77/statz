@@ -37,8 +37,8 @@ class People(models.Model):
         return self.pk
 
 class Profile(models.Model):
-    bio = models.CharField(max_length=250)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name= 'usermodel', default=2)
+    bio = models.CharField(max_length=250)
     profile_pic = CloudinaryField('image')
     followers = models.ForeignKey(Peopletoo, on_delete=models.CASCADE )
     following = models.ForeignKey(People, on_delete=models.CASCADE)

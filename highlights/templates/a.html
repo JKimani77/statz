@@ -1,0 +1,16 @@
+
+{% for i in data %}
+
+        <div class="col-md-6">
+            <div class="card" style="background-color: aquamarine;">
+                <div class="card-header">
+                    <h1>{{i.title}}</h1>
+                </div>
+                <a href="{{i.url}}">{{i.url}}</a>
+                <img src="{{i.image.url}}" alt="">
+                <h1>{{i.competition.name}}</h1>
+                
+            </div>
+        </div>
+  
+        {%endfor%}

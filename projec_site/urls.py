@@ -18,9 +18,14 @@ from django.urls import path,include
 from django.conf.urls import url
 from django.conf import settings
 from django.contrib.auth import views as auth_views
+from rest_framework import serializers, viewsets, routers
+from highlights.views import home
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
+    path('api-token-auth/', obtain_auth_token),
     path('admin/', admin.site.urls),
+    #path('', include(router.urls)),
     path('', include('highlights.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),

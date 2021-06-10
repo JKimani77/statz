@@ -1,17 +1,37 @@
-import requests
 import urllib.request, json
 from .models import *
 
+def process_apiresults(item_list):
+    
+    source_results = []
 
+    for i in item_list:
+        title = i.get('title')
+        image = i.get('thumbnail')
+        url = i.get('url')
+        competition_name = i.get('competition.id')
 
-url = "https://free-football-soccer-videos.p.rapidapi.com/"
+        if title:
+            a = Apidata(title,image,url,competition_name)
+            source_results.append(a)
 
-headers = {
-    'x-rapidapi-key': "6c61f61a64mshb7f6dd3b49823b4p1ea082jsnbd55b4b7071b",
-    'x-rapidapi-host': "free-football-soccer-videos.p.rapidapi.com"
-    }
+    return source_results
 
-response = requests.request("GET", url, headers=headers)
+def get_apistuff():
+    '''
+    function to get json response to request
+    '''
+    url = "https://free-football-soccer-videos.p.rapidapi.com/?rapidapi-key=6c61f61a64mshb7f6dd3b49823b4p1ea082jsnbd55b4b7071b"
+    
+    with urllib.request.urlopen(url)as url:
+        apidata = url.read()
+        apiresponse = json.loads(apidata)
 
-#
-# print(response.text)
+        apiresults = []
+
+        if apiresponse['items']:
+            apilist = apiresponse['items']
+            apiresults = process_apiresults(apilist)
+
+    return apiresults
+

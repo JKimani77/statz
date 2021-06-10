@@ -24,10 +24,14 @@ class Apidata(models.Model):
         apidata = cls.objects.filter(id = id).all()
         return apidata
     
+class Peopletoo(models.Model):
+    folowers = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.pk
 
 class People(models.Model):
     folowing = models.IntegerField(default=0)
-    folowers = models.IntegerField(default=0)
 
     def __str__(self):
         return self.pk
@@ -35,7 +39,7 @@ class People(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name= 'usermodel', default=2)
     profile_pic = CloudinaryField('image')
-    followers = models.ForeignKey(People, on_delete=models.CASCADE )
+    followers = models.ForeignKey(Peopletoo, on_delete=models.CASCADE )
     following = models.ForeignKey(People, on_delete=models.CASCADE)
 
     def save_profile(self):
@@ -57,7 +61,7 @@ class Profile(models.Model):
 class Comments(models.Model):
     whenposted = models.DateTimeField(auto_now_add=True)
     comment = models.CharField(max_length=100)
-    profileid = models.ForeignKey(Profile,on_delete=models/CASCADE)
+    profileid = models.ForeignKey(Profile,on_delete=models.CASCADE)
 
     def save_comment(self):
         self.save()

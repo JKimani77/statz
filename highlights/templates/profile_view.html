@@ -3,20 +3,22 @@
 {%block content %}
 
 <div class="container">
-    <div class="span3 well">
+    <div class="span">
         <br>
         <br>
         <br>
         {%for i in profile %}
         
-        <img style="border-radius: 4%;" src="{{i.profile_pic.url}}" name="aboutme" width="800" height="440" class="img-circle"></<img>
+        <div class="col-md-6"><img  src="{{i.profile_pic.url}}" name="aboutme" width="800" height="440" class="img-circle"></<img></div>
         <br>
         <br>
         
-        <h3 style="color: white;" >Username    {{i.user.username}}</h3>
-        <h3 style="color: white;" >Email     {{i.user.email}}</h3>
-        <em style="color: white; " >{{i.bio} }</em>
+      <div class="col-md-6">
+        <h3 style="color: rgb(0, 0, 0);" >Username ----    {{i.user.username}}</h3>
+        <h3 style="color: white;" >Email ----  {{i.user.email}}</h3>
+        <h3 style="color: black;" >{{i.bio}}</h3>
         
+      </div>
         {%endfor%}
         <hr>
     </div>

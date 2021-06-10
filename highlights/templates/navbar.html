@@ -11,7 +11,7 @@
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li style="margin-top: 50px; text-decoration: white; " class="nav-item">
-          <a class="nav-link" href="">{{ user.username }}</a>
+          <a class="nav-link" href="profile/{{request.user.id}}/">{{ user.username }}</a>
           (myprofile)
         </li>
         
@@ -21,7 +21,7 @@
         </li>
 
         <li style="margin-top: 50px;" class="nav-item">
-          <a class="nav-link" href="">UpdateProfile</a>
+          <a class="nav-link" href="{% url 'createprofile' %}">UpdateProfile</a>
         </li>
         
 

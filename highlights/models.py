@@ -24,24 +24,13 @@ class Apidata(models.Model):
         apidata = cls.objects.filter(id = id).all()
         return apidata
     
-class Peopletoo(models.Model):
-    folowers = models.IntegerField(default=0)
 
-    def __str__(self):
-        return self.pk
-
-class People(models.Model):
-    folowing = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.pk
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name= 'usermodel', default=2)
     bio = models.CharField(max_length=250)
     profile_pic = CloudinaryField('image')
-    followers = models.ForeignKey(Peopletoo, on_delete=models.CASCADE )
-    following = models.ForeignKey(People, on_delete=models.CASCADE)
+    
 
     def save_profile(self):
         self.save()

@@ -1,46 +1,45 @@
 
-# Project Title
+# League Highlights
 
 
 
 
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [Django Documentation](https://docs.djangoproject.com/en/3.2/)
+ - [Rapid Api](https://rapidapi.com/)
+ - [Database Models](https://dbdiagram.io/home)
 
   
 ## API Reference
+ - [Rapid Api](https://rapidapi.com/)
 
 #### Get all items
 
 ```http
-  GET /api/items
+  GET /api/data
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+| Parameter | Type      | Description                |
+| :-------- | :-------  | :------------------------- |
+| `api_key` | `varchar` | **Required**. Your API key |
 
 #### Get item
 
 ```http
-  GET /api/items/${id}
+  GET /api/profile/${id}
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of item to fetch |
 
-#### add(num1, num2)
 
-Takes two numbers and returns the sum.
 
   
 ## Authors
 
-- [@katherinepeterson](https://www.github.com/octokatherine)
+- [@j.kimani](https://www.github.com/JKimani77)
 
   
 ## Badges
@@ -54,12 +53,12 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
   
 ## Demo
 
-Insert gif or link to demo
+[Demo](https://docs.google.com/presentation/d/1Z96BiO1M9zq6CTGcBM-yrvJ7T8yl7VDJKvThyPHdTiU/edit?usp=sharing)
 
   
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+[README](https://github.com/JKimani77/statz/blob/master/README.md)
 
   
 ## Environment Variables
@@ -85,18 +84,19 @@ To run this project, you will need to add the following environment variables to
 
   
 ## Feedback
-Incorporates use of django tool to serve websockets as asgi app in project.
+Incorporates use of django channels to serve websockets as asgi app in project.
 
 If you have any feedback, please reach out to us at mail@mail.com.com
 
   
 ## Installation 
 
-Install my-project with npm
+Install projec-site with django
 
-```bash 
-  npm install my-project
-  cd my-project
+```ps1 
+  mkdir statz
+  cd statz
+
 ```
     
 ## License
@@ -106,10 +106,10 @@ Install my-project with npm
   
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 
 ![DBDIAGRAM](https://github.com/JKimani77/statz/blob/master/raw/dbd.png?raw=true)
+
+![HOMEPAGE](https://github.com/JKimani77/statz/blob/master/raw/home.png?raw=true)
 
 
   
@@ -144,6 +144,8 @@ For support, email jkkimani77@gmail.com or join me on Discord.
 - Additional browser support
 
 - Add more integrations
+
+- Redis Installation
 
   
 ## Run Locally
